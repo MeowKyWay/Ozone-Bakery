@@ -8,9 +8,9 @@
             <div class="bg-white rounded-xl shadow-lg mt-7 p-4 sm:p-7 dark:bg-slate-900">
                 <div class="mb-3 flex flex-wrap">
                     <section class="flex flex-col items-stretch w-[30%] max-md:w-full">
-                        <button class="mr-auto mb-3 text-xl text-gray-800 dark:text-gray-200">
+                        <a onclick="goBack()" class="mr-auto mb-3 text-xl text-gray-800 dark:text-gray-200">
                             < Product Detail
-                        </button>
+                        </a>
 
                         <div class="flex flex-wrap items-start">
                             <img src="https://qph.cf2.quoracdn.net/main-qimg-37dda6fa7979664c76053ee03460d8f0-lq" class="h-90 w-90 rounded-3xl">
@@ -48,8 +48,6 @@
                     </div>
 
                     
-                    
-                
                 
                 </div>
 
@@ -57,4 +55,10 @@
             <!-- End Card -->
     </div>
     <!-- End Card Section -->
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 @endsection
