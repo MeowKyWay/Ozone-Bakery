@@ -19,21 +19,42 @@
                    <img src="https://cdn.icon-icons.com/icons2/2714/PNG/512/shopping_cart_thin_icon_171537.png" class="h- mr-3 sm:h-9" alt="Logo">
                 </a>
            @if(Auth::check())
-                <div class="mx-4">
-                    {{ Auth::user()->name }}
+                <div class="mx-4 font-semibold" style="color: black;">
+                    <div class="dropdown">
+                        <h>{{ Auth::user()->name }}</h>
+                        <div class="dropdown-content">
+
+                            <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-stone-500">
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Signed in as</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-gray-400">{{ Auth::user()->email }}</p>
+                            </div>
+                            
+                            <a href="history" >Order History</a>
+                            <a href="profile" >Profile</a>
+
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit">
+                                    Logout
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit">
-                            Logout
-                        </button>
-                    </form>
-                </div>
+
             @else
-            <div class="mx-4 font-semibold"  style="color: black;">
-                <button  id="loginPopupButton">Sign in</button>
-            </div>
+            <div class="mx-4 font-semibold" style="color: black;">
+                <div class="dropdown">
+                  <button id="loginPopupButton" class="dropbtn">Sign in</button>
+                  <div class="dropdown-content">
+
+                    <a href="#" id="RegisterPopupButton">Register</a>
+                    
+                  </div>
+                </div>
+              </div>
+              
             <div id="loginPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                 <div class="bg-white rounded-lg p-8">
                     <form method="POST" action="{{ route('login') }}">
@@ -69,11 +90,13 @@
 
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
-                        <div>
-{{--                                <a id="changePopupButtonToRegister" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">--}}
-{{--                                    {{ __('ยังไม่มีบัญชี? ไปสมัครเลย') }}--}}
-{{--                                </a>--}}
-                        </div>
+
+                        {{-- <div>
+                             <a href="" id="changePopupButtonToRegister" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md">
+                                   {{ __('ยังไม่มีบัญชี? ไปสมัครเลย') }}
+                            </a>
+                        </div> --}}
+
                         <div class="flex items-center justify-center mt-4">
                             <button id="closeLoginPopupButton" class="mr-14 btn ">Close</button>
                             <button id="loginButton" class="ml-14 btn">
@@ -81,10 +104,120 @@
                             </button>
                         </div>
                     </form>
-
-                    </form>
-
-
+                    <div id="registerPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+                        <div class="bg-white rounded-lg p-8">
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+    
+                                <!-- Firstname -->
+                                <div>
+                                    <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="first_name" :value="__('ชื่อจริง')">
+                                        ชื่อจริง
+                                    </label>
+                                    <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                    style="color: black;"
+                                            id="first_name"
+                                            type="text"
+                                            name="first_name" :value="old('first_name')"
+                                            required autofocus
+                                            autocomplete="first_name" />
+                                    <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+                                </div>
+    
+                                <!-- Lastname -->
+                                <div class="mt-4">
+                                    <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="last_name" :value="__('นามสกุล')">
+                                        นามสกุล
+                                    </label>
+                                    <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                    style="color: black;"
+                                            id="last_name"
+                                            type="text"
+                                            name="last_name" :value="old('last_name')"
+                                            required autofocus
+                                            autocomplete="name" />
+                                    <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                                </div>
+    
+                                <!-- Nickname -->
+                                <div class="mt-4">
+                                    <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="nickname" :value="__('ชื่อเล่น')">
+                                        ชื่อเล่น
+                                    </label>
+                                    <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                    style="color: black;"
+                                            id="nickname"
+                                            type="text"
+                                            name="nickname" :value="old('nickname')"
+                                            required autofocus
+                                            autocomplete="name" />
+                                    <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
+                                </div>
+    
+                                <!-- Email Address -->
+                                <div class="mt-4">
+                                    <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('อีเมล')">
+                                        อีเมล
+                                    </label>
+                                    <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                    style="color: black;"
+                                            id="email"
+                                            type="email"
+                                            name="email" :value="old('email')"
+                                            required
+                                            autocomplete="username" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                </div>
+    
+                                <!-- Password -->
+                                <div class="mt-4">
+                                    <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('รหัสผ่าน')">
+                                        รหัสผ่าน
+                                    </label>
+    
+                                    <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                    style="color: black;"
+                                            id="password"
+                                            class="block mt-1 w-full"
+                                            type="password"
+                                            name="password"
+                                            required
+                                            autocomplete="new-password" />
+    
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                </div>
+    
+                                <!-- Confirm Password -->
+                                <div class="mt-4">
+                                    <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password_confirmation" :value="__('ยืนยันรหัสผ่าน')">
+                                        ยืนยัน รหัสผ่าน
+                                    </label>
+    
+                                    <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                    style="color: black;"
+                                            id="password_confirmation"
+                                            class="block mt-1 w-full"
+                                            type="password"
+                                            name="password_confirmation"
+                                            required
+                                            autocomplete="new-password" />
+    
+                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                </div>
+                                <div class="mt-2">
+                                    <a href="#" id="changePopupButtonToLogin" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                        {{ __('เคยสมัครแล้ว? ไปเข้าสู่ระบบเลย') }}
+                                    </a>
+                                </div>
+                                <div class="flex items-center justify-middle mt-4">
+                                    <button id="closeRegisterPopupButton" class="mr-9 btn">Close</button>
+                                    <button class="ml-auto btn">
+                                        {{ __('สมัครสมาชิก') }}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
            @endif
@@ -127,11 +260,13 @@
                        Custom Orders
                     </a>
                 </li>
+                
             </ul>
         </div>
     </div>
 </nav>
 <script setup lang="ts">
+
     const loginPopupButton = document.getElementById('loginPopupButton');
     const loginPopupModal = document.getElementById('loginPopupModal');
     const closeLoginPopupButton = document.getElementById('closeLoginPopupButton');
@@ -143,4 +278,18 @@
     closeLoginPopupButton.addEventListener('click', function() {
     loginPopupModal.classList.add('hidden');
     });
+
+    const registerPopupButton = document.getElementById('RegisterPopupButton'); // Update the id
+    const registerPopupModal = document.getElementById('registerPopupModal');
+    const closeRegisterPopupButton = document.getElementById('closeRegisterPopupButton');
+
+    registerPopupButton.addEventListener('click', function() {
+    registerPopupModal.classList.remove('hidden');
+    });
+
+    closeRegisterPopupButton.addEventListener('click', function() {
+    registerPopupModal.classList.add('hidden');
+    });
+
+    
 </script>
