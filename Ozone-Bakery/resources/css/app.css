@@ -3,14 +3,6 @@
 @tailwind utilities;
 
 
-#loginPopupModal {
-    z-index: 1000;
-}
-
-#RegisterPopupModal {
-    z-index: 1000;
-}
-
 /* Style for the dropdown container */
 .dropdown {
     position: relative;
@@ -32,12 +24,13 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    left: -120px; /* Adjust this value to determine how far to the left it should open */
   }
   
   /* Style for dropdown links */
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 12px;
     text-decoration: none;
     display: block;
   }
