@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*----- Product ----- */
+Route::get('/detail', [ProductDetailController::class, 'detail']) // รอเปลี่ยนเป็น /{product}/detail
+    ->name('product.detail');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
