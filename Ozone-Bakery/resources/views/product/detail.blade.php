@@ -5,7 +5,7 @@
     <div class="max-w-screen-xl px-4 py-1 sm:px-2 lg:px-2 lg:py-1 mx-auto">
       
             <!-- Card -->
-            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-7 dark:bg-slate-900">
+            <div class="bg-white rounded-xl shadow-lg mt-7 p-4 sm:p-7 dark:bg-slate-900">
                 <div class="mb-3 flex flex-wrap">
                     <section class="flex flex-col items-stretch w-[30%] max-md:w-full">
                         <button class="mr-auto mb-3 text-xl text-gray-800 dark:text-gray-200">
