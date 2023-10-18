@@ -10,10 +10,11 @@
             </div>
         
         <div class="flex items-center">
-                <a class="ml-auto" href="{{ url('/') }}"
-                   class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+            <div class="dropdown">
+                <a class="ml-auto">
                    <img src="https://icons.veryicon.com/png/o/miscellaneous/fine-fillet-icon/notification-bell.png" class="h-6 mr-3 sm:h-8" alt="Logo">
                 </a>
+            </div>
                 <a class="ml-auto" href="{{ url('/') }}"
                    class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
                    <img src="https://cdn.icon-icons.com/icons2/2714/PNG/512/shopping_cart_thin_icon_171537.png" class="h- mr-3 sm:h-7" alt="Logo">
@@ -31,10 +32,10 @@
                             
                             <a href="history" >Order History</a>
                             <a href="profile" >Profile</a>
-
+        
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit">
+                                <button class="text-md justi" type="submit">
                                     Logout
                                 </button>
                             </form>
@@ -49,6 +50,8 @@
                 <div class="dropdown">
                     <img src="https://static.thenounproject.com/png/4613668-200.png" class="h- mr-3 sm:h-9" alt="Logo">
                   <div class="dropdown-content">
+
+                    
 
                     <a href="login" id="loginPopupButton">Sign in</a>
                     <a href="register" id="RegisterPopupButton">Register</a>

@@ -34,15 +34,29 @@
     text-decoration: none;
     display: block;
   }
+
+  .dropdown-content button {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    width: fill;
+    text-align: left;
+  }
   
   /* Change link color on hover */
   .dropdown-content a:hover {
     background-color: #9f948f;
     color: white;
   }
+
+  .dropdown-content button:hover {
+    background-color: #9f948f;
+    color: white;
+  }
+  
   
   /* Show the dropdown content on hover */
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
