@@ -212,7 +212,7 @@
                                 <div class="flex items-center justify-middle mt-4">
                                     <button id="closeRegisterPopupButton" class="mr-9 btn">Close</button>
                                     <button class="ml-auto btn">
-                                        {{ __('สมัครสมาชิก') }}
+                                        {{ __('Register') }}
                                     </button>
                                 </div>
                             </form>
@@ -289,6 +289,11 @@
 
     closeRegisterPopupButton.addEventListener('click', function() {
     registerPopupModal.classList.add('hidden');
+    });
+
+    changePopupButtonToLogin.addEventListener('click', function() {
+        registerPopupModal.classList.add('hidden');
+        loginPopupModal.classList.remove('hidden');
     });
 
     
