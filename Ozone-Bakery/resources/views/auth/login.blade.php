@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('content')
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -7,19 +10,31 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('Email')">
+                Email
+            </label>
+            <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+            style="color: black;"
+                    id="email"
+                    type="email"
+                    name="email" :value="old('email')"
+                    required autofocus
+                    autocomplete="username">
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('Password')">
+                Password
+            </label>
+            <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"  style="color: black;"
+                    id="password"
+                    type="password"
+                    name="password"
+                    required
+                    autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -45,3 +60,4 @@
         </div>
     </form>
 </x-guest-layout>
+@endsection

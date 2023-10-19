@@ -22,7 +22,7 @@
            @if(Auth::check())
                 <div class="mx-4 font-semibold" style="color: black;">
                     <div class="dropdown">
-                        <h>{{ Auth::user()->name }}</h>
+                        <h>{{ Auth::user()->firstname }}</h>
                         <div class="dropdown-content">
 
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-stone-500">

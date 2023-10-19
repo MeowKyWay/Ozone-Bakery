@@ -24,7 +24,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    left: -120px; /* Adjust this value to determine how far to the left it should open */
+    left: -110px; /* Adjust this value to determine how far to the left it should open */
   }
   
   /* Style for dropdown links */
