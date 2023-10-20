@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\API\IngredientController;
+use App\Http\Controllers\API\MadeToOrderController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\OrderDetailController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\ProductStockController;
+use App\Http\Controllers\API\RecipeController;
+use App\Http\Controllers\API\RecipeDetailController;
 use App\Http\Controllers\API\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +31,11 @@ Route::apiResource('/products', ProductController::class);
 Route::apiResource('/product-stocks', ProductStockController::class);
 
 Route::apiResource('/order-details', OrderDetailController::class);
+
+Route::apiResource('/recipes', RecipeController::class);
+
+Route::apiResource('/ingredients', IngredientController::class);
+
+Route::apiResource('/recipe-details', RecipeDetailController::class);
+
+Route::apiResource('/made-to-orders', MadeToOrderController::class);

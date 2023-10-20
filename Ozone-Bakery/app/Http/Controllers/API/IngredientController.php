@@ -10,7 +10,7 @@ class IngredientController extends Controller
 {
     public function index()
     {
-        return Ingredient::all();
+        return Ingredient::get();
     }
 
     public function show(Ingredient $ingredient)
@@ -27,8 +27,8 @@ class IngredientController extends Controller
 
         $ingredient = new Ingredient();
 
-        $ingredient->name = $request->input('name');
-        $ingredient->quantity_unit = $request->input('quantity_unit');
+        $ingredient->name = $request->get('name');
+        $ingredient->quantity_unit = $request->get('quantity_unit');
 
         $ingredient->save();
         $ingredient->refresh();
@@ -42,13 +42,8 @@ class IngredientController extends Controller
             'quantity_unit' => 'nullable|string|max:255',
         ]);
 
-        if ($request->filled('name')) {
-            $ingredient->name = $request->input('name');
-        }
-
-        if ($request->filled('quantity_unit')) {
-            $ingredient->quantity_unit = $request->input('quantity_unit');
-        }
+        if ($request->has('name')) $ingredient->name = $request->get('name');
+        if ($request->has('quantity_unit')) $ingredient->quantity_unit = $request->get('quantity_unit');
 
         $ingredient->save();
         $ingredient->refresh();
