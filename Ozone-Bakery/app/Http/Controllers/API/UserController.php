@@ -22,6 +22,7 @@ class UserController extends Controller
     {
         $request->validate ([
             'name'  => 'required|min:3|max:256',
+            'lastname'  => 'required|min:3|max:256',
             'tel'   => 'required|string|size:10|regex:/^[0-9]+$/',
             'email' => 'required|email',
             'password'  => 'required|string|min:8',
@@ -31,6 +32,7 @@ class UserController extends Controller
         $user = new User();
 
         $user->name = $request->get('name');
+        $user->lastname = $request->get('lastname');
         $user->tel = $request->get('tel');
         $user->email = $request->get('email');
         $user->password = $request->get('password');
@@ -45,6 +47,7 @@ class UserController extends Controller
     {
         $request->validate ([
             'name'  => 'nullable|min:3|max:256',
+            'lastname'  => 'nullable|min:3|max:256',
             'tel'   => 'nullable|string|size:10|regex:/^[0-9]+$/',
             'email' => 'nullable|email',
             'email_verified_at' => 'nullable|date',
@@ -53,6 +56,7 @@ class UserController extends Controller
         ]);
 
         if ($request->has('name')) $user->name = $request->get('name');
+        if ($request->has('lastname')) $user->lastname = $request->get('lastname');
         if ($request->has('tel')) $user->tel = $request->get('tel');
         if ($request->has('email')) $user->email = $request->get('email');
         if ($request->has('email_verified_at')) $user->email_verified_at = $request->get('email_verified_at');
