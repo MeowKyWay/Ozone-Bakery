@@ -1,63 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\API;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use App\Http\Controllers\Controller;
-use App\Models\Ingredient;
-use Illuminate\Http\Request;
-
-class IngredientController extends Controller
+return new class extends Migration
 {
-    public function index()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
-        return Ingredient::all();
+        Schema::create('ingredients', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name');
+            $table->string('quantity_unit');
+
+            $table->timestamps();
+        });
     }
 
-    public function show(Ingredient $ingredient)
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
-        return $ingredient;
+        Schema::dropIfExists('ingredients');
     }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'quantity_unit' => 'required|string|max:255',
-        ]);
-
-        $ingredient = new Ingredient();
-
-        $ingredient->name = $request->input('name');
-        $ingredient->quantity_unit = $request->input('quantity_unit');
-
-        $ingredient->save();
-        $ingredient->refresh();
-        return $ingredient;
-    }
-
-    public function update(Request $request, Ingredient $ingredient)
-    {
-        $request->validate([
-            'name' => 'nullable|string|max:255',
-            'quantity_unit' => 'nullable|string|max:255',
-        ]);
-
-        if ($request->filled('name')) {
-            $ingredient->name = $request->input('name');
-        }
-
-        if ($request->filled('quantity_unit')) {
-            $ingredient->quantity_unit = $request->input('quantity_unit');
-        }
-
-        $ingredient->save();
-        $ingredient->refresh();
-        return $ingredient;
-    }
-
-    public function destroy(Ingredient $ingredient)
-    {
-        $ingredient->delete();
-        return ["message" => "Deleted successfully"];
-    }
-}
+};
