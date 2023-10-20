@@ -17,7 +17,8 @@ class UsersTableSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'John Doe',
+                'name' => 'John',
+                'lastname' => 'Doe',
                 'tel' => '1234567890',
                 'email' => 'john@example.com',
                 'password' => '12345678',
@@ -27,6 +28,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => 'Jane Smith',
+                'lastname' => 'Smith',
                 'tel' => '9876543210',
                 'email' => 'jane@example.com',
                 'password' => '12345678',
