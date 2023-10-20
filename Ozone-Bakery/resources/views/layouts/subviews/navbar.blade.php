@@ -30,9 +30,9 @@
                         <h>{{ Auth::user()->firstname }}</h>
                         <div class="dropdown-content">
 
-                            <div class="py-3 px-5 bg-gray-100 rounded-t-lg">
-                                <p class="text-sm text-gray-500">Signed in as</p>
-                                <p class="text-sm font-medium text-gray-800">{{ Auth::user()->email }}</p>
+                            <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-stone-500">
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Signed in as</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-gray-400">{{ Auth::user()->email }}</p>
                             </div>
                             
                             <a href="history" >Order History</a>
