@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Recipe extends Model
 {
     use HasFactory;
 
-    public function orders(){
-        return $this->hasMany(Order::class);
+    public function recipe_details(){
+        return $this->hasMany(RecipeDetail::class);
     }
 
     public function made_to_orders(){
