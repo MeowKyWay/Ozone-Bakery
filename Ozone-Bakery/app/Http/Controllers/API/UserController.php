@@ -63,7 +63,7 @@ class UserController extends Controller
         $user->refresh();
         return $user;
     }
-
+  
     public function destroy(User $user)
     {
         $user->delete();

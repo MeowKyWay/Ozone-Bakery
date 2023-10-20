@@ -27,12 +27,12 @@
            @if(Auth::check())
                 <div class="mx-4 font-semibold" style="color: black;">
                     <div class="dropdown">
-                        <h>{{ Auth::user()->firstname }}</h>
+                        <h>{{ API::user()->firstname }}</h>
                         <div class="dropdown-content">
 
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-stone-500">
                                 <p class="text-sm text-gray-500 dark:text-gray-300">Signed in as</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-400">{{ Auth::user()->email }}</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-gray-400">{{ API::user()->email }}</p>
                             </div>
                             
                             <a href="history" >Order History</a>
