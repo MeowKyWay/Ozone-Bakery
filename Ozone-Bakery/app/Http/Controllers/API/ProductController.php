@@ -10,7 +10,12 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return Product::get();
+        $products = Product::get();
+
+        return view('layouts.products.index', [
+            'products' => $products
+        ]);
+
     }
 
     public function show(Product $product)

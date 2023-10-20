@@ -26,6 +26,48 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Product c',
+                'price' => 38,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Product d',
+                'price' => 65,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Product e',
+                'price' => 42,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Product f',
+                'price' => 38,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Product g',
+                'price' => 75,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Product h',
+                'price' => 95,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Product o',
+                'price' => 32,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
             // Add more product data as needed
         ];
 

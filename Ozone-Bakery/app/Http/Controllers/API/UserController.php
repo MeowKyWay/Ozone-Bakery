@@ -5,17 +5,22 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request): view
     {
-        return User::get();
+        return view('profile.index', [
+            'user' => $request->user(),
+        ]);
     }
 
     public function show(User $user)
     {
-        return $user;
+        return view('profile.show', [
+            'user' => $user,
+        ]);
     }
 
     public function store(Request $request)

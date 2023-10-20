@@ -27,12 +27,12 @@
            @if(Auth::check())
                 <div class="mx-4 font-semibold" style="color: black;">
                     <div class="dropdown">
-                        <h>{{ API::user()->firstname }}</h>
+                        <h>{{ Auth::user()->name }}</h>
                         <div class="dropdown-content">
 
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-stone-500">
                                 <p class="text-sm text-gray-500 dark:text-gray-300">Signed in as</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-400">{{ API::user()->email }}</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-gray-400">{{ Auth::user()->email }}</p>
                             </div>
                             
                             <a href="history" >Order History</a>
@@ -88,13 +88,13 @@
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
                     <a href="{{ url('/') }}"
-                       class="nav-menu ml-20 {{ request()->is('/') ? 'active' : '' }}">
+                       class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/') }}"
-                       class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('/products') }}"
+                       class="nav-menu {{ request()->is('products') ? 'active' : '' }}">
                         Products
                     </a>
                 </li>

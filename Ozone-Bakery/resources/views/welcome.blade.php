@@ -162,8 +162,7 @@
                 <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl">+ | Add to Cart</a>
             </div>
         </div>
-        
-       </div>
+      </div>
     </section>
   </div>
 </div>
