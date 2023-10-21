@@ -10,7 +10,13 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return Order::get();
+
+        $orders = Order::get();
+
+        return view('layouts.cart.index', [
+            'orders' => $orders
+        ]);
+
     }
 
     public function show(Order $order)

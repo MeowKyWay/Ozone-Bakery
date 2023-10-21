@@ -20,8 +20,8 @@
                     </span>
                 </a>
             </div>
-                <a class="ml-auto" href="{{ url('/') }}"
-                   class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                <a class="ml-auto" href="{{ route("cart", ['user'=>Auth::user()])}}"
+                   class="nav-menu {{ request()->is('cart') ? 'active' : '' }}">
                    <img src="https://cdn.icon-icons.com/icons2/2714/PNG/512/shopping_cart_thin_icon_171537.png" class="h- mr-3 sm:h-7" alt="Logo">
                 </a>
            @if(Auth::check())

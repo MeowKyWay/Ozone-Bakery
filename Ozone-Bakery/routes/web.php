@@ -5,6 +5,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
 
 
 /*
@@ -20,6 +21,9 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])
     ->name('welcome');
+
+Route::get('/mycart', [CartController::class, 'index'])
+    ->name('cart');
 
 Route::get('/products', [ProductController::class, 'index'])->name('layouts.products.index');
 
