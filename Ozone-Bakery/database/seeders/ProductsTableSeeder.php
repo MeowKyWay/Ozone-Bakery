@@ -63,7 +63,7 @@ class ProductsTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Product o',
+                'name' => 'Product i',
                 'price' => 32,
                 'created_at' => now(),
                 'updated_at' => now(),
