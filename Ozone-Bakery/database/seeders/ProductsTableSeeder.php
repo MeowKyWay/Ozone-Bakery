@@ -17,12 +17,16 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Product A',
                 'price' => 25,
+                'image_path' => 'public/image/product/clinkers-cake-173208-2.jpg',
+                'description' => 'Hey! Nice piece cake',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'name' => 'Product B',
                 'price' => 35,
+                'image_path' => 'public/image/product/clinkers-cake-173208-2.jpg',
+                'description' => 'Hey! Nice piece cake',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

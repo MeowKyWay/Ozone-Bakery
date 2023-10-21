@@ -22,13 +22,16 @@ class ProductController extends Controller
     {
         $request->validate ([
             'name' => 'required|string|min:3',
-            'price' => 'required|integer|min:0'
+            'price' => 'required|integer|min:0',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'nullable|string'
         ]);
 
         $product = new Product();
 
         $product->name = $request->get('name');
         $product->amount = $request->get('price');
+        $product->image_path = $request->get('image_path');
 
         $product->save();
         $product->refresh();
@@ -39,12 +42,13 @@ class ProductController extends Controller
     {
         $request->validate ([
             'name' => 'nullable|string|min:3',
-            'price' => 'nullable|integer|min:0'
+            'price' => 'nullable|integer|min:0',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         if ($request->has('name')) $product->name = $request->get('name');
         if ($request->has('price')) $product->amount = $request->get('price');
-
+        if ($request->has('image_path')) $product->image_path = $request->get('image_path');
         $product->save();
         $product->refresh();
         return $product;
