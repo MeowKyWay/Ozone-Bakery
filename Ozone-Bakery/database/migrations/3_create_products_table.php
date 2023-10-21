@@ -16,6 +16,8 @@ return new class extends Migration
 
             $table->string('name');
             $table->unsignedInteger('price');
+            $table->string('image_path')->default('public/image/product/default.jpg');
+            $table->text('description');
 
             $table->timestamps();
         });
