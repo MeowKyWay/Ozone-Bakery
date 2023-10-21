@@ -24,6 +24,15 @@ class UsersTableSeeder extends Seeder
         $user->password = 'mute';
         $user->is_admin = 0;
         $user->save();
-        
+
+        $user = new User();
+        $user->name = 'smart';
+        $user->lastname = 'art';
+        $user->tel = '0987654322';
+        $user->email = 'smart@example.com';
+        $user->password = 'smart';
+        $user->is_admin = 1;
+        $user->save();
+
     }
 }
