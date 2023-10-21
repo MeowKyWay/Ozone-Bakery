@@ -48,4 +48,6 @@
         </div>
     </form>
 </x-guest-layout>
+
 @endsection
+

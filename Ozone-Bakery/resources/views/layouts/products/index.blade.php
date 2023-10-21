@@ -19,8 +19,14 @@
               <img loading="lazy" srcset="
                   https://cdn.builder.io/api/v1/image/assets%2F77d863c720664375bca8264055c66bc2%2Ffafdad9268ab4666a88c3721e00fb7b4
               "alt="" class="aspect-[1.46] object-cover object-center w-[250px] h-[250px] mx-auto my-5 rounded-2xl border-0 border-solid" />
+
+              {{-- ใส่รูปสินค้า --}}
+              {{-- <img loading="lazy" srcset="
+                  {{ asset($product->productimage_path) }}
+              "alt="" class="aspect-[1.46] object-cover object-center w-[250px] h-[250px] mx-auto my-5 rounded-2xl border-0 border-solid" /> --}}
+
               <h3 class="text-2xl mx-auto">{{  $product->name  }}</h3>
-              <p class="text-xl mx-auto my-2.5">{{  $product->price  }}</p>
+              <p class="text-xl mx-auto my-2.5">Price: {{  $product->price  }} Baht</p>
               <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl">+ | Add to Cart</a>
           </div>
       </div>
