@@ -87,25 +87,36 @@
         <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
-                    <a href="{{ url('/') }}"
-                       class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('/') }}" class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/products') }}"
-                       class="nav-menu {{ request()->is('products') ? 'active' : '' }}">
+                    <a href="{{ url('/products') }}" class="nav-menu {{ request()->is('products') ? 'active' : '' }}">
                         Products
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('/') }}"
-                       class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
-                       Custom Orders
-                    </a>
-                </li>
-                
+                @if(Auth::check() && Auth::user()->is_admin == 1)
+                    <!-- Admin-specific navigation items go here -->
+                    <li>
+                        <a href="{{ url('/ingredients') }}" class="nav-menu {{ request()->is('ingredients') ? 'active' : '' }}">
+                            Ingredients
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/custom-orders') }}" class="nav-menu {{ request()->is('custom-orders') ? 'active' : '' }}">
+                           Custom Orders
+                        </a>
+                    </li>
+                @else
+                    <li>
+                        <a href="{{ url('/custom-orders') }}" class="nav-menu {{ request()->is('custom-orders') ? 'active' : '' }}">
+                           Custom Orders
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
+        
     </div>
 </nav>
