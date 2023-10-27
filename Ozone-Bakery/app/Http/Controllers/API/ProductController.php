@@ -10,21 +10,27 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return Product::get();
+        $products = Product::get();
+        return $products;
+        // $products = Product::get();
+
+        // return view('layouts.products.index', [
+        //     'products' => $products
+        // ]);
+
     }
 
     public function show(Product $product)
     {
         return $product;
+        
     }
 
     public function store(Request $request)
     {
         $request->validate ([
             'name' => 'required|string|min:3',
-            'price' => 'required|integer|min:0',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'nullable|string'
+            'price' => 'required|integer|min:0'
         ]);
 
         $product = new Product();

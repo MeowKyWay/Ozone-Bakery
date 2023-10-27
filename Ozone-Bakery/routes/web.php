@@ -1,7 +1,14 @@
 <?php
 
+use App\Http\Controllers\API\IngredientController;
+use App\Http\Controllers\API\MadeToOrderController;
+use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+use App\Models\MadeToOrder;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +21,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])
+    ->name('welcome');
+
+Route::get('/mycart', [CartController::class, 'index'])
+    ->name('cart');
+
+Route::get('/products', [ProductController::class, 'index'])->name('layouts.products.index');
+
+Route::get('/custom-orders', [MadeToOrderController::class, 'index'])->name('layouts.products.made-to-order');
+Route::get('/ingredients', [IngredientController::class, 'index'])->name('layouts.products.ingredient');
+
+
+/*----- Product ----- */
+Route::get('/detail', [ProductDetailController::class, 'detail']) // รอเปลี่ยนเป็น /{product}/detail
+    ->name('product.detail');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/myprofile', [UserController::class, 'index'])->name('profile.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -4,14 +4,21 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\MadeToOrder;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class MadeToOrderController extends Controller
 {
     public function index()
-    {
-        return MadeToOrder::get();
-    }
+{
+    $madeToOrderData = MadeToOrder::get();
+    
+    return view('layouts.products.made-to-order', [
+        'madeToOrderData' => $madeToOrderData,
+    ]);
+}
+
+
 
     public function show(MadeToOrder $madeToOrder)
     {
