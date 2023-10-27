@@ -1,6 +1,6 @@
 <template>
     
-    <nav class="bg-white border-gray-200 py-1 flex justify-between items-center">
+    <nav class="bg-white border-gray-200 flex justify-between items-center">
       <a href="#" class="flex items-center ml-5 text-black">
         <img src="https://icons.veryicon.com/png/o/food--drinks/sweet-dessert-icon/croissant-18.png" class="h-6 mr-3 sm:h-9" alt="Logo">
         <span class="self-center text-1xl font-semibold whitespace-nowrap">Ozone Bakery</span>
