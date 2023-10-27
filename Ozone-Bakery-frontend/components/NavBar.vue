@@ -11,6 +11,9 @@
         <MenuLink to="/products/create">Add Product</MenuLink>
     </div>
     <div class="flex ">
+      <MenuLink to="/cart">
+        <img src="https://cdn.icon-icons.com/icons2/2714/PNG/512/shopping_cart_thin_icon_171537.png" class="h-5 mr-3 sm:h-7" alt="Logo">
+      </MenuLink>
         <MenuLink v-if="!auth.isLogin" to="/login" class="ml-auto">Login</MenuLink>
 
         <div v-if="auth.isLogin">
