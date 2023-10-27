@@ -33,6 +33,10 @@ Route::get('/custom-orders', [MadeToOrderController::class, 'index'])->name('lay
 Route::get('/ingredients', [IngredientController::class, 'index'])->name('layouts.products.ingredient');
 
 
+/*----- Product ----- */
+Route::get('/detail', [ProductDetailController::class, 'detail']) // รอเปลี่ยนเป็น /{product}/detail
+    ->name('product.detail');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
