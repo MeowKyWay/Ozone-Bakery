@@ -2,7 +2,7 @@
     <!-- Card Section -->
     <div class="max-w-screen-xl px-4 py-1 sm:px-2 lg:px-2 lg:py-1 mx-auto">
       <!-- Card -->
-      <div class="bg-white rounded-xl shadow-lg mt-7 p-4 sm:p-7 dark:bg-slate-900">
+      <div class="bg-stone-100 rounded-xl shadow-lg mt-7 p-4 sm:p-7 dark:bg-slate-900">
         <div class="mb-3 flex flex-wrap">
           <section class="flex flex-col items-stretch w-[30%] max-md:w-full">
             <a @click="goBack" class="mr-auto mb-3 text-xl text-gray-800 dark:text-gray-200">
@@ -16,7 +16,7 @@
             </a>
             <div class="flex flex-wrap items-start">
               <img
-                src="https://qph.cf2.quoracdn.net/main-qimg-37dda6fa7979664c76053ee03460d8f0-lq"
+              :src="image_path"
                 class="h-90 w-90 rounded-3xl"
               />
             </div>
@@ -28,11 +28,11 @@
             </h2>
   
             <p class="pl-4 mt-2 flex flex-wrap">
-              short description jamaja tingja ponyoponyoponyo sakananoko aoikumikara yaatekita
+              {{ description }}
             </p>
   
             <h1 class="text-3xl font-semibold mt-auto mb-3">
-              price
+              {{ price }}
             </h1>
           </section>
   
