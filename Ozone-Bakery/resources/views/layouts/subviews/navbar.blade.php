@@ -5,9 +5,6 @@
             <span class="self-center text-1xl font-semibold whitespace-nowrap">Ozone Bakery</span>
         </a>
         <div class="flex items-center lg:order-2">
-            <div class="hidden mt-2 mr-4 sm:inline-block">
-                <span></span>
-            </div>
         
         <div class="flex items-center">
             <div class="dropdown">
