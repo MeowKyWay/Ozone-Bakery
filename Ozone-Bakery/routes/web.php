@@ -28,9 +28,13 @@ Route::get('/mycart', [CartController::class, 'index'])
     ->name('cart');
 
 Route::get('/products', [ProductController::class, 'index'])->name('layouts.products.index');
+Route::get('/products/{id}', [ProductController::class, 'showProduct'])->name('layouts.products.detail');
+
 
 Route::get('/custom-orders', [MadeToOrderController::class, 'index'])->name('layouts.products.made-to-order');
 Route::get('/ingredients', [IngredientController::class, 'index'])->name('layouts.products.ingredient');
+Route::get('/customer-orders', [MadeToOrderController::class, 'index'])->name('layouts.products.made-to-order');
+
 
 
 /*----- Product ----- */

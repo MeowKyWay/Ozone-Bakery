@@ -10,20 +10,26 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
-        return $products;
         // $products = Product::get();
+        // return $products;
+        $products = Product::get();
 
-        // return view('layouts.products.index', [
-        //     'products' => $products
-        // ]);
+        return view('layouts.products.index', [
+            'products' => $products
+        ]);
 
     }
 
     public function show(Product $product)
     {
+
         return $product;
         
+    }
+    public function showProduct($productId) {
+
+        $product = Product::find($productId);
+        return view('layouts.products.detail', compact('product'));
     }
 
     public function store(Request $request)

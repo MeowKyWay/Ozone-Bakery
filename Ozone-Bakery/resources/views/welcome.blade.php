@@ -31,7 +31,7 @@
       
                           <h3 class="text-2xl mx-auto">{{ $product->name }}</h3>
                           <p class="text-xl mx-auto my-2.5">Price: {{ $product->price }} Baht</p>
-                          <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl">+ | Add to Cart</a>
+                          <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl hover:bg-stone-600">+ | Add to Cart</a>
                       </div>
                   </div>
                   @php $counter++; @endphp
@@ -72,7 +72,7 @@
     
                         <h3 class="text-2xl mx-auto">{{ $product->name }}</h3>
                         <p class="text-xl mx-auto my-2.5">Price: {{ $product->price }} Baht</p>
-                        <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl">+ | Add to Cart</a>
+                        <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl hover:bg-stone-600">+ | Add to Cart</a>
                     </div>
                 </div>
                 @php
