@@ -16,23 +16,30 @@ class UsersTableSeeder extends Seeder
     public function run(): void
     {
 
-        $user = new User();
-        $user->name = 'หมิวหมิว';
-        $user->lastname = 'หมิวหมิว';
-        $user->tel = '0987654321';
-        $user->email = 'mute@example.com';
-        $user->password = 'mute';
-        $user->is_admin = 0;
-        $user->save();
+        $data = [
+            [
+                'name' => "Kan",
+                'lastname' => "Sriprapai",
+                'tel' => '1112223333',
+                'email' => 'gunkspp1511@gmail.com',
+                'password' => Hash::make("12345678"),
+                'is_admin' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => "Duj",
+                'lastname' => "Dujduj",
+                'tel' => '1234567890',
+                'email' => 'dujduj@example.com',
+                'password' => Hash::make("12345678"),
+                'is_admin' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
 
-        $user = new User();
-        $user->name = 'smart';
-        $user->lastname = 'art';
-        $user->tel = '0987654322';
-        $user->email = 'smart@example.com';
-        $user->password = 'smart';
-        $user->is_admin = 1;
-        $user->save();
+        User::insert($data);
 
     }
 }

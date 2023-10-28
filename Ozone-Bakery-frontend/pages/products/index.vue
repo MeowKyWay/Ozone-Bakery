@@ -16,7 +16,11 @@
               <img :src="product.imagePath" class="aspect-[1.46] object-cover object-center w-[250px] h-[250px] mx-auto my-5 rounded-2xl border-0 border-solid">
               <h3 class="text-2xl mx-auto text-black">{{ product.name }}</h3>
               <p class="text-xl mx-auto my-2.5 text-black">Price: {{ product.price }} Baht</p>
-              <a href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl">+ | Add to Cart</a>
+              <!-- <form @submit.prevent="addToCart()">
+                <button href="" class="bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl">
+                  + | Add to Cart
+                </button>
+              </form> -->
             </div>
           </div>
         </div>
@@ -28,5 +32,35 @@
 
 const { data: products, pending } = await useMyFetch<any>("products", {})
 
+const errorMessage = ref("")
+
+const cartFormData = ref({
+  user_id: 0,
+  product_id: 0,
+  amount: 0,
+})
+
+// async function addToCart(product) {
+//     const { user_id } = cartFormData.value
+//     const { product_id } = product.id
+//     const { amount } = cartFormData.value
+
+//     console.log(user_id)
+    
+//     const { data: response, error } = await useMyFetch<any>("carts", {
+//       method: "POST",
+//       body: { user_id, product_id, amount}
+//     })
+  
+//     if (response.value !== null) {
+//       errorMessage.value = ""
+//       await navigateTo(`/cart`)
+//     }
+//     else {
+//       const { statusMessage, data } = error.value!
+//       console.log(statusMessage)
+//       errorMessage.value = data.message
+//     }
+//   }
 
 </script>

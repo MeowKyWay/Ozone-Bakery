@@ -42,3 +42,17 @@ Route::apiResource('/recipe-details', RecipeDetailController::class);
 Route::apiResource('/made-to-orders', MadeToOrderController::class);
 
 Route::apiResource('/carts', CartController::class);
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+    Route::post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+    Route::post('refresh', [\App\Http\Controllers\Api\AuthController::class, 'refresh']);
+    Route::post('me', [\App\Http\Controllers\Api\AuthController::class, 'me']);
+
+});

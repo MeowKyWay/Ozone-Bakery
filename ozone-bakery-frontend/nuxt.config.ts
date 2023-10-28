@@ -1,23 +1,29 @@
-import portcss from "postcss";
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
+  runtimeConfig: {
+    public: {
+      apiBaseURL: 'http://localhost/api/'
+    }
   },
-  css: [
-    '~/assets/css/main.css',
-  ],
-
+  devtools: { enabled: true },
   modules: [
     '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-		'@pinia-plugin-persistedstate/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
-
-})
+  serverHandlers: [
+    {
+        route: '/ws',
+        handler: '~/server/middleware/socket'
+    }
+],
+  css: ['~/assets/css/main.css'],
+  postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
+)

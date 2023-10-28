@@ -19,11 +19,6 @@
         <p v-if="errorMessage" class="text-red-500">{{ errorMessage }}</p>
         <input v-model='formData.description' type="text" id="description" />
       </div>
-      <div>
-        <label for="amount">Product amount:</label>
-        <p v-if="errorMessage" class="text-red-500">{{ errorMessage }}</p>
-        <input v-model='formData.amount' type="text" id="amount" />
-      </div>
   
       <div>
         <button type="submit">
@@ -50,16 +45,15 @@
     const { name } = formData.value
     const { price } = formData.value
     const { description } = formData.value
-    const { amount } = formData.value
     
     const { data: response, error } = await useMyFetch<any>("products", {
       method: "POST",
-      body: { name, price, description, amount}
+      body: { name, price, description}
     })
   
     if (response.value !== null) {
       errorMessage.value = ""
-      await navigateTo(`/products/${response.value.id}`)
+      await navigateTo(`/products`)
     }
     else {
       const { statusMessage, data } = error.value!
