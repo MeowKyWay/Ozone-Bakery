@@ -7,7 +7,7 @@
     </div>
     <div v-else v-for="artist in artists" :key="artist.id">
         <div class="m-4 text-blue-200">
-            <nuxt-link :to="`/artist/${artist.id}` ">
+            <nuxt-link :to="`/artist/${artist.id}`" >
                 {{  artist.name }}
             </nuxt-link>
         </div>

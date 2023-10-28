@@ -9,6 +9,8 @@
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="/products">Products</MenuLink>
         <MenuLink to="/products/create">Add Product</MenuLink>
+        <MenuLink to="/products/ingredient">Ingredients</MenuLink>
+
     </div>
     <div class="flex ">
       <MenuLink to="/cart">
