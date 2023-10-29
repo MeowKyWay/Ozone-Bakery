@@ -8,6 +8,13 @@
                 All Products
               </div>
             </div>
+            <div class="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full">
+              <menu-link
+                to="/products/create"
+                class="shrink-0 box-border bg-stone-500 text-white no-underline text-base mx-auto px-5 py-2.5 rounded-3xl hover:bg-stone-600 ml-auto mt-5 mr-20 bg-stone-500">
+                Add Product
+              </menu-link>
+            </div>
           </div>
         </div>
         <div class="flex flex-wrap max-md:flex-col max-md:items-stretch max-md:gap- ml-20 mr-20 pl-20 pr-20 mt-5 mx-auto">
