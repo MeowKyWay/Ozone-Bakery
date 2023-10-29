@@ -6,20 +6,20 @@
       <div class="mb-3 flex flex-wrap">
         <section class="flex flex-col items-stretch w-[30%] max-md:w-full">
           <a href="javascript:void(0);" @click="goBack" class="mr-auto mb-3 text-xl text-gray-800 dark:text-black">
-            Product Detail
+            All Products
           </a>
           <div class="flex flex-wrap items-start">
-            <img :src="product.image_path" class="h-90 w-90 rounded-3xl">
+            <img :src="`http://localhost/${product.image_path}`" :alt="product.name" class="h-90 w-90 rounded-3xl">
           </div>
         </section>
         <section class="flex flex-col items-stretch w-[47%] ml-5 max-md:w-full">
           <h2 class="mt-8 text-3xl font-bold text-gray-800 text-black">
             {{ product.name }}
           </h2>
-          <p class="pl-4 mt-2 flex flex-wrap">
+          <p class=" mt-2 flex text-black flex-wrap">
             {{ product.description }}
           </p>
-          <h1 class="text-2xl font-semibold mt-auto mb-3">
+          <h1 class="text-2xl font-semibold text-black mt-auto mb-3">
             Price: {{ product.price }} Baht
           </h1>
         </section>
@@ -42,22 +42,10 @@
 
 <script setup>
 
-const route = useRoute();
-const config = useRuntimeConfig();
-const product = ref(null);
-
-const fetchData = async () => {
-  try {
-    const response = await useMyFetch(`api/products/${route.params.id}`, {});
-    if (response) {
-      product.value = response.data; // Assuming your API response contains the product data
-    } else {
-      // Handle API response error here
-    }
-  } catch (error) {
-    // Handle network or other errors here
-  }
-};
+const route = useRoute()
+const config = useRuntimeConfig()
+const pageTitle = `Product no. ${route.params.id}`
+const { data:product } = await useMyFetch(`products/${route.params.id}`, {})
 
 onMounted(() => {
   fetchData();

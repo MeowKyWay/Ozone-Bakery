@@ -4,8 +4,7 @@
         <div class="flex justify-between">
           <div class="flex flex-col items-stretch w-6/12 max-md:w-full">
             <div
-              id="scrollTarget"
-              class="relative shrink-0 box-border h-auto text-3xl grow-0 w-auto ml-20 mt-5 mb-2.5 pl-10"
+              class="relative shrink-0 box-border h-auto text-3xl grow-0 w-auto ml-20 mt-5 mb-2.5 pl-10 text-black"
             >
               All Ingredients
             </div>
@@ -22,15 +21,11 @@
       </div>
       <div class="flex flex-wrap max-md:flex-col max-md:items-stretch max-md:gap- ml-20 mr-20 pl-20 pr-20 mt-5 mx-auto">
         <div
-          v-for="ingredient in ingredients"
-          :key="ingredient.id"
-          class="flex flex-col items-stretch w-3/12 max-md:w-full mb-5"
-        >
-          <div
-            class="flex flex-col relative shrink-0 box-border h-auto shadow-[3px_-2px_26px_-20px_rgba(0,0,0,1)] w-[300px] self-center mt-5 pb-8 rounded-3xl border-[3px] border-solid border-stone-300"
-          >
-            <h3 class="text-2xl mx-auto mt-5">{{ ingredient.name }}</h3>
-            <p class="text-xl mx-auto my-2.5">Quantity: {{ ingredient.quantity_unit }}</p>
+          v-for="(ingredient, index) in ingredients" :key="index"
+          class="flex flex-col items-stretch w-3/12 max-md:w-full mb-5">
+          <div class="flex flex-col relative shrink-0 box-border h-auto shadow-[3px_-2px_26px_-20px_rgba(0,0,0,1)] w-[300px] self-center mt-5 pb-8 rounded-3xl border-[3px] border-solid border-stone-300">
+            <h3 class="text-2xl mx-auto mt-5 text-black">{{ ingredient.name }}</h3>
+            <p class="text-xl mx-auto my-2.5 text-black">Quantity: {{ ingredient.quantity_unit }}</p>
           </div>
         </div>
       </div>
@@ -38,7 +33,7 @@
   </template>
   
   <script setup>
-   const { data: product, pending } = useMyFetch('ingredients', {});
+   const { data: ingredients} = await useMyFetch('ingredients', {});
 
   </script>
   
