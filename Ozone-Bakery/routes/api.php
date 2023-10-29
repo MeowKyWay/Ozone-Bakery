@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\IngredientController;
 use App\Http\Controllers\API\MadeToOrderController;
 use App\Http\Controllers\API\OrderController;
@@ -39,3 +40,5 @@ Route::apiResource('/ingredients', IngredientController::class);
 Route::apiResource('/recipe-details', RecipeDetailController::class);
 
 Route::apiResource('/made-to-orders', MadeToOrderController::class);
+
+Route::get('/api/images/{image}', 'ImageController@getImage');

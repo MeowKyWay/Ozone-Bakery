@@ -29,17 +29,13 @@ Route::get('/mycart', [CartController::class, 'index'])
 
 Route::get('/products', [ProductController::class, 'index'])->name('layouts.products.index');
 Route::get('/products/{id}', [ProductController::class, 'showProduct'])->name('layouts.products.detail');
+Route::get('/images/{image}', 'ImageController@getImage');
 
 
 Route::get('/custom-orders', [MadeToOrderController::class, 'index'])->name('layouts.products.made-to-order');
 Route::get('/ingredients', [IngredientController::class, 'index'])->name('layouts.products.ingredient');
 Route::get('/customer-orders', [MadeToOrderController::class, 'index'])->name('layouts.products.made-to-order');
 
-
-
-/*----- Product ----- */
-Route::get('/detail', [ProductDetailController::class, 'detail']) // รอเปลี่ยนเป็น /{product}/detail
-    ->name('product.detail');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
